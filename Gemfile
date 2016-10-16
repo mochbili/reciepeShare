@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
@@ -36,6 +34,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
+
+  # alternative runtime developer console like IRB
+  gem 'pry', '~> 0.10.4'
 end
 
 group :development do
@@ -44,4 +48,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  # Pg is the Ruby interface to the {PostgreSQL RDBMS}[http://www.postgresql.org/].
+  gem 'pg', '~> 0.19.0'
+
+  # Run Rails the 12factor way
+  gem 'rails_12factor', '~> 0.0.3'
 end
