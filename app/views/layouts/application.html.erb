@@ -8,22 +8,7 @@
 </head>
 <body>
 
-  <!-- navigation -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <%= link_to "ReciepeShare", "#", class: "btn btn-success", id: "logo" %>
-      <div class="nav-item">
-        <%= link_to "link 1", "#", class: "btn btn-default btn-warning" %>
-      </div>
-      <div class="nav-item">
-        <%= link_to "link 2", "#", class: "btn btn-default btn-warning" %>
-      </div>
-      <div class="nav-item">
-        <%= link_to "link 3", "#", class: "btn btn-default btn-warning" %>
-      </div>
-    </div>
-  </nav>
-  <!-- end navigation -->
+  <%= render "layouts/navigation" %>
 
   <!-- content yeld -->
   <div class="container">
@@ -31,13 +16,7 @@
   </div>
   <!-- end content yield -->
 
-  <!-- footer -->
-  <div class="container">
-    <footer>
-      <p>&copy; Mo Bili 2016</p>
-    </footer>
-  </div>
-  <!-- end footer -->
+  <%= render "layouts/footer" %>
 
 </body>
 </html>
