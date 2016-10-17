@@ -1,4 +1,7 @@
 class Chef < ActiveRecord::Base
+  
+  # relationship
+  has_many :reciepes
 
   # callback
   before_save :change_email_downcase
