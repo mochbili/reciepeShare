@@ -1,5 +1,6 @@
 class Reciepe < ActiveRecord::Base
 
+  # validation
   validates :name, presence: true,
                    length: {within: 5..50}
   validates :summary, presence: true,

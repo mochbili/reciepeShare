@@ -3,4 +3,4 @@ I create this app just for exerciesing purposes
 
 please visit https://reciepeshare.herokuapp.com for live demo
 
-Thanks for fisiting my repo
+Thanks for visiting my repo
