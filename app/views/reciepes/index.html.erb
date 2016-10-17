@@ -1,0 +1,22 @@
+<h1>All Reciepes</h1>
+<hr>
+
+<% @reciepes.each do |reciepe| %>
+  <div class="row">
+    <div class="col-md-2">
+      <section class="chef-info center">
+
+      </section>
+    </div>
+
+    <div class="col-md-8 well">
+      <h4><%= link_to reciepe.name, "#" %></h4>
+      <p><%= reciepe.summary %></p>
+      <p>
+        <span class="quiet">
+          <small><%= time_ago_in_words(reciepe.created_at) %></small>
+        </span>
+      </p>
+    </div>
+  </div>
+<% end %>
