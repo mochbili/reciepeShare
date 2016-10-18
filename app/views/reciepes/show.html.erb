@@ -1,0 +1,23 @@
+<p>
+  <h1><%= @reciepe.name %></h1>
+</p>
+
+<div class="row">
+  <div class="col-md-4 pull-right center">
+    <%= gravatar_for(@reciepe.chef, size: 200) %>
+    <p>
+      <h5>Brought to you by: <%= @reciepe.chef.chefname %></h5>
+    </p>
+  </div>
+  <div class="col-md-8">
+    <h3><%= @reciepe.summary %></h3>
+    <div class="well">
+      <p>
+        <strong>Steps:</strong>
+      </p>
+      <%= @reciepe.description %>
+    </div>
+  </div>
+</div>
+
+<h5><%= link_to "Return to Reciepes", reciepes_path, class: "btn btn-warning" %></h5>
