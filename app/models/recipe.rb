@@ -1,4 +1,4 @@
-class Reciepe < ActiveRecord::Base
+class Recipe < ActiveRecord::Base
 
   # relationship
   belongs_to :chef, dependent: :destroy

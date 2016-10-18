@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017070350) do
+ActiveRecord::Schema.define(version: 20161018044151) do
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname",   limit: 255
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161017070350) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "reciepes", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "summary",     limit: 65535
     t.text     "description", limit: 65535
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20161017070350) do
     t.integer  "chef_id",     limit: 4
   end
 
-  add_index "reciepes", ["chef_id"], name: "index_reciepes_on_chef_id", using: :btree
+  add_index "recipes", ["chef_id"], name: "index_recipes_on_chef_id", using: :btree
 
-  add_foreign_key "reciepes", "chefs"
+  add_foreign_key "recipes", "chefs"
 end
