@@ -12,6 +12,9 @@
       <%= @recipe.summary %>
       <span class="pull-right"><%= link_to "Edit Recipe", edit_recipe_path, class: "btn btn-warning" %></span>
     </h3>
+    <div class="show-recipe">
+      <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
+    </div>
     <div class="well">
       <p>
         <strong>Steps:</strong>
@@ -22,3 +25,12 @@
 </div>
 
 <h5><%= link_to "Return to Recipes", recipes_path, class: "btn btn-primary" %></h5>
+
+<script type="text/javascript">
+  $('#recipe_picture').bind('change', function () {
+    sizeInMegabytes = $(this).files[0].size/1024/1024;
+    if (sizeInMegabytes > 5) {
+      alert('Maximum file size is 5mb, Please choose a smaller file');
+    }
+  });
+</script>
