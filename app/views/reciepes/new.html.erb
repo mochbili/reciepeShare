@@ -1,0 +1,36 @@
+<h1>Create a new Reciepes</h1>
+<hr>
+
+<% if @reciepe && @reciepe.errors.size > 0 %>
+  <div class="row">
+    <div class="alert alert-danger col-md-8 col-md-offset-2">
+      <h5><%= pluralize(@reciepe.errors.size, "error") %> found, Please correct them!</h5>
+      <p>There were problems with the following fields:</p>
+      <ul>
+        <% @reciepe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for @reciepe do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :summary %>
+      <%= f.text_field :summary %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10 %>
+
+      <%= f.submit "Create Reciepe", class: "btn btn-success" %>
+
+    <% end %>
+  </div>
+</div>

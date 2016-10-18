@@ -76,4 +76,19 @@ footer {
 
 .well {
   margin-bottom: 0;
+  background-color: #ededed;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #d2d2d2;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input {
+  height: auto !important;
+}
+
+.field_with_errors label{
+  color: #a94442;
 }
