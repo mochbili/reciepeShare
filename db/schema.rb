@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018084057) do
+ActiveRecord::Schema.define(version: 20161019065203) do
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname",   limit: 255
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20161018084057) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "likes", force: :cascade do |t|
+    t.boolean  "like"
+    t.integer  "chef_id",    limit: 4
+    t.integer  "recipe_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "likes", ["chef_id"], name: "index_likes_on_chef_id", using: :btree
+  add_index "likes", ["recipe_id"], name: "index_likes_on_recipe_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -32,5 +43,7 @@ ActiveRecord::Schema.define(version: 20161018084057) do
 
   add_index "recipes", ["chef_id"], name: "index_recipes_on_chef_id", using: :btree
 
+  add_foreign_key "likes", "chefs"
+  add_foreign_key "likes", "recipes"
   add_foreign_key "recipes", "chefs"
 end

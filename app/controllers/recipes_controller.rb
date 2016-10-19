@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.order("created_at ASC")
+    @recipes = Recipe.all.sort_by{|likes| likes.total_like}.reverse
   end
 
   def show
@@ -35,6 +35,18 @@ class RecipesController < ApplicationController
       redirect_to recipe_path(@recipe)
     else
       render "edit"
+    end
+  end
+
+  def like
+    @recipe = Recipe.find(params[:id])
+    like = Like.create(like: params[:thumbs], chef_id: 1, recipe_id: @recipe.id)
+    if like.valid?
+      flash[:success] = "Thanks for your vote..."
+      redirect_to :back
+    else
+      flash[:danger] = "You already vote..."
+      redirect_to :back
     end
   end
 

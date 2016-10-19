@@ -1,7 +1,8 @@
 class Chef < ActiveRecord::Base
-  
+
   # relationship
   has_many :recipes
+  has_many :likes
 
   # callback
   before_save :change_email_downcase

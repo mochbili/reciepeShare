@@ -12,6 +12,16 @@
     <div class="col-md-7 well">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary %></p>
+
+      <div class="pull-right">
+        <%= link_to like_recipe_path(recipe, thumbs: true), method: :post, class: "btn btn-primary" do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp; <%= recipe.total_like %>
+        <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to like_recipe_path(recipe, thumbs: false), method: :post, class: "btn btn-danger" do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i>&nbsp; <%= recipe.total_dislike %>
+        <% end %>
+      </div>
+
       <p>
         <span class="quiet">
           <small><%= time_ago_in_words(recipe.created_at) %></small>

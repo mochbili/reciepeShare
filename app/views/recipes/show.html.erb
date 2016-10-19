@@ -20,17 +20,17 @@
         <strong>Steps:</strong>
       </p>
       <%= simple_format(@recipe.description) %>
+
+      <div class="pull-right">
+        <%= link_to like_recipe_path(@recipe, thumbs: true), method: :post, class: "btn btn-primary" do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>&nbsp; <%= @recipe.total_like %>
+        <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to like_recipe_path(@recipe, thumbs: false), method: :post, class: "btn btn-danger" do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i>&nbsp; <%= @recipe.total_dislike %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
 <h5><%= link_to "Return to Recipes", recipes_path, class: "btn btn-primary" %></h5>
-
-<script type="text/javascript">
-  $('#recipe_picture').bind('change', function () {
-    sizeInMegabytes = $(this).files[0].size/1024/1024;
-    if (sizeInMegabytes > 5) {
-      alert('Maximum file size is 5mb, Please choose a smaller file');
-    }
-  });
-</script>
