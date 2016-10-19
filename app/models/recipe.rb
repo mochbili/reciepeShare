@@ -1,8 +1,8 @@
 class Recipe < ActiveRecord::Base
 
   # relationship
-  belongs_to :chef, dependent: :destroy
-  has_many :likes
+  belongs_to :chef
+  has_many :likes, dependent: :destroy
 
   # validation
   validates :name, presence: true,

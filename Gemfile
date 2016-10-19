@@ -43,6 +43,9 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 # Hooks into will_paginate to format the html to match Twitter Bootstrap styling
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 
+# counter_culture provides turbo-charged counter caches that are kept up-to-date
+gem 'counter_culture', '~> 0.2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

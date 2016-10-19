@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.order('created_at DESC').page(params[:page]).per_page(4)
+    @recipes = Recipe.order('likes_count DESC').page(params[:page]).per_page(4)
   end
 
   def show
