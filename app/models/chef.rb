@@ -17,6 +17,8 @@ class Chef < ActiveRecord::Base
                     uniqueness: {case_sensitive: false},
                     format: EMAIL_REGEX
 
+  has_secure_password
+
   private
 
     def change_email_downcase
