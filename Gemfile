@@ -37,6 +37,12 @@ gem 'carrierwave', '~> 0.11.2'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
+# will_paginate provides a simple API for performing paginated queries with Active Record
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+
+# Hooks into will_paginate to format the html to match Twitter Bootstrap styling
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
