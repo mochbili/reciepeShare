@@ -11,12 +11,12 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
-    # unless session[:chef_id]
-    #   flash[:danger] = "Please logged in."
-    #   redirect_to login_path
-    #   return false
-    # else
-    #   return true
-    # end
+  end
+
+  def require_user
+    if !logged_in?
+      flash[:danger] = "Please logged in."
+      redirect_to login_path
+    end
   end
 end
