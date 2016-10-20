@@ -1,8 +1,9 @@
 <%= render "shared/errors", object: @chef %>
 
-<div class="row">
-  <div class="well col-md-8 col-md-offset-2">
-    <%= form_for @chef do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+      <%= form_for @chef do |f| %>
 
       <%= f.label :chefname, "Name" %>
       <%= f.text_field :chefname %>
@@ -15,6 +16,7 @@
 
       <%= f.submit @chef.new_record? ? "Register" : "Update", class: "btn btn-success" %>
 
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  </div>  
 </div>

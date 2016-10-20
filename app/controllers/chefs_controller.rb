@@ -1,5 +1,14 @@
 class ChefsController < ApplicationController
 
+  def index
+    @chefs = Chef.all.page(params[:page]).per_page(4)
+  end
+
+  def show
+    @chef = Chef.find(params[:id])
+    @recipes = @chef.recipes.order("likes_count DESC").page(params[:page]).per_page(4)
+  end
+
   def new
     @chef = Chef.new
   end

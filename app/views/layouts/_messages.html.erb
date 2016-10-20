@@ -1,9 +1,11 @@
-<div class="row">
-  <div class="col-md-10">
-    <% flash.each do |messages_type, msg| %>
+<div class="container">  
+  <div class="row">
+    <div class="col-md-10">
+      <% flash.each do |messages_type, msg| %>
       <div class="alert alert-<%= messages_type %>"><%= msg %>
         <a class="close" data-dismiss="alert">&#215;</a>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
