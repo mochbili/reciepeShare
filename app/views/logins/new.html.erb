@@ -1,0 +1,19 @@
+<%= render "shared/pagetitle", title: "Login" %>
+
+<%= render "shared/errors", object: @recipe %>
+
+<div class="row">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 well">
+      <%= form_tag login_path do %>
+        <%= label_tag :email %>
+        <%= email_field_tag :email %>
+
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+
+        <%= submit_tag "Login", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

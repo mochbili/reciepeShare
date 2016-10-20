@@ -1,37 +1,18 @@
 <div class="jumbotron center">
   <h1>Welcome to recipeshare App</h1>
   <h2>Want to cook ?..fell free to browse all recipe</h2>
-  <%= link_to "Sign up", "#", class: "btn btn-success" %>
+  <%= link_to "Sign up", register_path, class: "btn btn-success" %> Or
+  <%= link_to "Login", login_path, class: "btn btn-primary" %>
 </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-12 center">
     <h3 class="midrow">
       View recipes as Guest User
     </h3>
-    <h2 class="left">
+    <h2 class="">
       Browse and view recipes as a guest and Sign up latter
     </h2>
-    <p><%= link_to "Browse recipe Listing", recipes_path, class: "btn btn-warning" %></p>
-  </div>
-
-  <div class="col-md-4">
-    <h3 class="midrow">
-      View recipes as Guest User
-    </h3>
-    <h2 class="left">
-      Browse and view recipes as a guest and Sign up latter
-    </h2>
-    <p><%= link_to "Browse recipe Listing", "#", class: "btn btn-warning" %></p>
-  </div>
-
-  <div class="col-md-4">
-    <h3 class="midrow">
-      View recipes as Guest User
-    </h3>
-    <h2 class="left">
-      Browse and view recipes as a guest and Sign up latter
-    </h2>
-    <p><%= link_to "Browse recipe Listing", "#", class: "btn btn-warning" %></p>
+    <p><%= link_to "Browse recipe Listing", recipes_path, class: "btn btn-primary" %></p>
   </div>
 </div>

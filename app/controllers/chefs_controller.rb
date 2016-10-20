@@ -18,6 +18,7 @@ class ChefsController < ApplicationController
 
     if @chef.save
       flash[:success] = "Successfully created..."
+      session[:user_id] = @chef.id
       redirect_to recipes_path
     else
       render "new"
