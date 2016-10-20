@@ -11,7 +11,9 @@
     <div class="col-md-8">
       <h3 class="show">
         <%= @recipe.summary %>
-        <span class="pull-right"><%= link_to "Edit Recipe", edit_recipe_path, class: "btn btn-warning" %></span>
+        <% if logged_in? && @recipe.chef == current_user %>
+          <span class="pull-right"><%= link_to "Edit Recipe", edit_recipe_path, class: "btn btn-warning" %></span>
+        <% end %>
       </h3>
       <div class="show-recipe">
         <%= image_tag(@recipe.picture.url, class: "gravatar") if @recipe.picture? %>
