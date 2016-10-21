@@ -1,4 +1,4 @@
-<%= render "shared/pagetitle", title: "All Recipes" %>
+<%= render "shared/pagetitle", title: "Recipes for : #{@style.name} foods"  %>
 
 <ul class="nav nav-tabs">
   <li class="active">
@@ -11,7 +11,7 @@
 
 <div class="container">
   <div class="row">
-    <%= will_paginate %>
+    <%= will_paginate @recipes %>
   </div>
 </div>
 
@@ -60,6 +60,6 @@
 
 <div class="container">
   <div class="row">
-    <%= will_paginate %>
+    <%= will_paginate @recipes %>
   </div>
 </div>

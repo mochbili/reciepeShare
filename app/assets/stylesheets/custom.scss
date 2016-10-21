@@ -29,6 +29,7 @@ body {
   margin-left: 25px;
   float: left;
   margin-top: 20px;
+  padding-left: 0;
 }
 
 .center {
@@ -109,5 +110,13 @@ span.picture {
 }
 
 .well {
-  overflow: hidden 
+  overflow: hidden
+}
+
+.pagination {
+  margin: 10px 0;
+}
+
+.result-list {
+  margin: 20px 0;
 }
