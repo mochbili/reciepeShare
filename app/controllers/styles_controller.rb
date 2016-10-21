@@ -1,5 +1,7 @@
 class StylesController < ApplicationController
 
+  before_action :require_user, except: [:show]
+
   def show
     @style = Style.find(params[:id])
     @recipes = @style.recipes.order("likes_count DESC").page(params[:page]).per_page(4)
