@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019180509) do
+ActiveRecord::Schema.define(version: 20161021102737) do
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname",        limit: 255
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 20161019180509) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "password_digest", limit: 255
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name", limit: 255
   end
 
   create_table "likes", force: :cascade do |t|
@@ -31,6 +35,22 @@ ActiveRecord::Schema.define(version: 20161019180509) do
 
   add_index "likes", ["chef_id"], name: "index_likes_on_chef_id", using: :btree
   add_index "likes", ["recipe_id"], name: "index_likes_on_recipe_id", using: :btree
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id",     limit: 4
+    t.integer "ingredient_id", limit: 4
+  end
+
+  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id", using: :btree
+  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
+
+  create_table "recipe_styles", force: :cascade do |t|
+    t.integer "recipe_id", limit: 4
+    t.integer "style_id",  limit: 4
+  end
+
+  add_index "recipe_styles", ["recipe_id"], name: "index_recipe_styles_on_recipe_id", using: :btree
+  add_index "recipe_styles", ["style_id"], name: "index_recipe_styles_on_style_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -45,7 +65,15 @@ ActiveRecord::Schema.define(version: 20161019180509) do
 
   add_index "recipes", ["chef_id"], name: "index_recipes_on_chef_id", using: :btree
 
+  create_table "styles", force: :cascade do |t|
+    t.string "name", limit: 255
+  end
+
   add_foreign_key "likes", "chefs"
   add_foreign_key "likes", "recipes"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipe_styles", "recipes"
+  add_foreign_key "recipe_styles", "styles"
   add_foreign_key "recipes", "chefs"
 end
